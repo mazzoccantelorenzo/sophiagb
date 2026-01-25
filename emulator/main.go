@@ -181,5 +181,4 @@ func main() {
 
 	mem := memory.New()
 	cpu := cpu.New(mem)
-
 }

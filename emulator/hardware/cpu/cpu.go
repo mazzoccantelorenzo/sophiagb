@@ -53,12 +53,7 @@ func New(mem MemoryBus) *CPU {
 	9 different known official boot ROMs are known to exist, some are broken as I've seen on the docs.
 	We are going to use DMG.
 	After this, we are going to see how does the GBA render graphically the startup.
-	I've downloaded a BootRom from this link to understand what's all about
-
-		https://github.com/LIJI32/SameBoy/blob/master/BootROMs/dmg_boot.asm.
-
-	Then I downloaded the bin file directly, so that i could get the bytecode version of the rom.
-
-		curl -L -o dmg_boot.bin https://github.com/LIJI32/SameBoy/raw/master/BootROMs/prebuilt/dmg_boot.bin
+	From SameBoy repo, i've downloaded what I need, check its repo.
+	https://github.com/LIJI32/SameBoy.git
 
 */
