@@ -9,13 +9,18 @@ package main
 // https://gbdev.io/pandocs/About.html <--- Emulator Bible to consult :)
 import (
 	"fmt"
-	"github.com/hajimehoshi/ebiten/v2"
-	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
+
+	"game/hardware/cpu"
+	"game/hardware/memory"
+
 	"io"
 	"io/fs"
 	"log"
 	"os"
 	"path/filepath"
+
+	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
 )
 
 type Game struct {
@@ -167,7 +172,14 @@ func main() {
 
 	ebiten.SetWindowSize(640, 480)
 	ebiten.SetWindowTitle("Sophiagb")
+
 	if err := ebiten.RunGame(&Game{}); err != nil {
 		log.Fatal(err)
 	}
+	// Dependency injection to use cpu and memory.
+	// We initialize these 2 things so we can even test.
+
+	mem := memory.New()
+	cpu := cpu.New(mem)
+
 }
