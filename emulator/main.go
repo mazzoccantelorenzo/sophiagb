@@ -137,9 +137,13 @@ func (g *Game) Update() error {
 			log.Fatal(err)
 		}
 
-		//fmt.Println(data)
 		fmt.Printf("Game: %s\n ", data[0xA0:0xAC]) //It is a standard for gba roms to print the game's name in these bytes.
-		hexDumpToFile(data, "pokemon_dump.txt")    // I've used this to get a proper rapresentation in bytecode of what is a rom all about.
+
+		CPU := cpu.New()
+
+		GPU := gpu.NEW()
+
+		hexDumpToFile(data, "pokemon_dump.txt") // I've used this to get a proper rapresentation in bytecode of what is a rom all about.
 	}
 
 	return nil

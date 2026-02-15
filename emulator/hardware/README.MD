@@ -5,6 +5,9 @@
 hardware/
 ├── cpu/              # CPU logic and instruction execution
 │   └── cpu.go        # CPU struct, registers, and execution loop
+│   
+├── gpu/              # GPU logic and instruction execution
+│   └── gpu.go        # GPU struct
 │
 ├── memory/           # Memory management unit (MMU)
 │   └── memory.go     # Memory mapping, I/O, and bank switching

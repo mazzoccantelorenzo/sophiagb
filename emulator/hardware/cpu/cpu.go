@@ -11,20 +11,22 @@ package cpu
 		"OR A,B"
 		"OR B"	 (Same as A,B).
 
-  B , C , D , E , H , L -> 	Generic use, some instructions use these in a specific way
+  	B , C , D , E , H , L -> 	Generic use, some instructions use these in a specific way
 
-  F  ->  Special register, the cpu updates this after every operation.
-  SP ->  Stack pointer,
-  PC ->  It has the next instruction's address
+  	F  ->  Special register, the cpu updates this after every operation.
+  	SP ->  Stack pointer,
+  	PC ->  It has the next instruction's address
 */
 
-// MemoryBus is the interface that i use so i can inject the memory.
+// MemoryBus is the interface that i use so i can inject the memory.i
+
 type MemoryBus interface {
 	Read(addr uint16) uint8
 	Write(addr uint16, value uint8)
 }
 
 // We can think about the cpu through a struct.
+
 type CPU struct {
 	// 8 bit registers
 	A, F uint8
@@ -39,6 +41,7 @@ type CPU struct {
 }
 
 // New creates a new CPU instance. The Cpu receives memory from main through dependency injection
+
 func New(mem MemoryBus) *CPU {
 	return &CPU{
 		Memory: mem,
